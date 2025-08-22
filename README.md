@@ -13,22 +13,6 @@ streamlit run app.py
 ```
 The app listens on **http://localhost:8501** by default.
 
-## Docker
-```bash
-docker build -t wedding-budget-app .
-docker run -d -p 8501:8501 --name wedding-budget-app wedding-budget-app
-```
-Or with docker-compose:
-```bash
-docker compose up -d
-```
-
-## Reverse Proxy (NGINX Proxy Manager)
-- Map a subdomain (e.g. `wedding.mqhomeserver`) to the container at `http://<host-ip>:8501`.
-- Enable WebSocket (Streamlit uses it).
-- Optionally put it behind Cloudflare Tunnel and your Zero Trust rules.
-
-> **Note on Netlify**: Streamlit is a **Python web app** and isn’t a static site. Netlify’s static hosting won’t run the Streamlit server. Prefer your **on‑prem VM + Docker**, or use a PaaS (Render, Fly.io, Railway) or **Streamlit Community Cloud**.
 
 ## Customization
 - Edit `app.py` to adjust cost ranges or defaults.
